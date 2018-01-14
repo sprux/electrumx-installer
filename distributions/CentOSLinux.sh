@@ -19,7 +19,8 @@ PATH=$PATH:/usr/local/bin
 
 
 function install_leveldb {
-	yum -y install libleveldb-dev build-essential || _error "Could not install packages" 3
+	yum -y groupinstall "Development Tools" || _error "Could not install Development Tools package group" 3
+	yum -y install leveldb-devel || _error "Could not install packages" 3
 }
 
 function install_git {
